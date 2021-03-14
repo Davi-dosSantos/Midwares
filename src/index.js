@@ -27,11 +27,11 @@ function checksCreateTodosUserAvailability(request, response, next) {
   const { user } = request;
 
 
-  if (user.pro || users.todos.length < 10) {
-    return next();
+  if (!user.pro && user.todos.length >= 10) {
+    return response.status(403).json({ error: "You have reached your limits of todos" });
   }
 
-  return response.status(403);
+  return next();
 }
 
 function checksTodoExists(request, response, next) {

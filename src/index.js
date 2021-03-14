@@ -24,11 +24,20 @@ function checksExistsUserAccount(request, response, next) {
 }
 
 function checksCreateTodosUserAvailability(request, response, next) {
+  const { user } = request;
 
+
+  if (user.pro || users.todos.length < 10) {
+    return next();
+  }
+
+  return response.status(403);
 }
 
 function checksTodoExists(request, response, next) {
-  // Complete aqui
+  const { username } = request.headers;
+  const { id } = request.params;
+
 }
 
 function findUserById(request, response, next) {

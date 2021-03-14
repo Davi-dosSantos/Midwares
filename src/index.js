@@ -24,7 +24,7 @@ function checksExistsUserAccount(request, response, next) {
 }
 
 function checksCreateTodosUserAvailability(request, response, next) {
-  // Complete aqui
+
 }
 
 function checksTodoExists(request, response, next) {
